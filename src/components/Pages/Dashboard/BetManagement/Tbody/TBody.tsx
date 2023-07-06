@@ -1,12 +1,13 @@
 import { TableBody } from "@mui/material";
-import { rows } from "../hook/createData/createData";
+import { useFetchedBets } from "../../../../Global/hooks/useFetchedBets";
 import { TableBodyRow } from "./TBodyRow/TBodyRow";
 
 export const TBody = () => {
+  const { betData } = useFetchedBets();
   return (
     <TableBody>
-      {rows.map(row => (
-        <TableBodyRow key={row.name} row={row} />
+      {betData.map((data, i) => (
+        <TableBodyRow key={i} data={data} />
       ))}
     </TableBody>
   );

@@ -6,8 +6,8 @@ import { THead } from "./THead/THead";
 
 export function BetManagement() {
   return (
-    <Card className="p-0 py-2">
-      <TextWrap className="text-sm capitalize ">football matches</TextWrap>
+    <Card className="overflow-x-scroll">
+      <TextWrap className="p-2 text-sm capitalize">football matches</TextWrap>
       <Table aria-label="collapsible table">
         <THead />
         <TBody />
