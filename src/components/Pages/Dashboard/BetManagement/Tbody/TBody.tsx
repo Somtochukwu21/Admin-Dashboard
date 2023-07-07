@@ -1,12 +1,15 @@
 import { TableBody } from "@mui/material";
-import { rows } from "../hook/createData/createData";
+import { Bet } from "../../../CreateBets/CreateBetForm/Bet";
 import { TableBodyRow } from "./TBodyRow/TBodyRow";
 
-export const TBody = () => {
+interface Props {
+  betData: Bet[];
+}
+export const TBody: React.FC<Props> = ({ betData }) => {
   return (
     <TableBody>
-      {rows.map(row => (
-        <TableBodyRow key={row.name} row={row} />
+      {betData.map((data, i) => (
+        <TableBodyRow key={i} data={data} />
       ))}
     </TableBody>
   );

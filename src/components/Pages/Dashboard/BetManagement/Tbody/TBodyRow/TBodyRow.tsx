@@ -1,12 +1,12 @@
 import { Box, Collapse, IconButton, TableCell, TableRow, Typography } from "@mui/material";
 import { Fragment, useState } from "react";
 import { BiSolidDownArrow, BiSolidUpArrow } from "react-icons/bi";
-import { createData } from "../../hook/createData/createData";
-import { HistoryTable } from "./HistoryTable/HistoryTable";
+import { Bet } from "../../../../CreateBets/CreateBetForm/Bet";
 
-export const TableBodyRow = (props: { row: ReturnType<typeof createData> }) => {
-  const { row } = props;
+export const TableBodyRow = (props: { data: Bet }) => {
+  const { data } = props;
   const [open, setOpen] = useState(false);
+  // console.log(props);
 
   return (
     <Fragment>
@@ -16,13 +16,14 @@ export const TableBodyRow = (props: { row: ReturnType<typeof createData> }) => {
             {open ? <BiSolidUpArrow /> : <BiSolidDownArrow />}
           </IconButton>
         </TableCell>
+
         <TableCell component="th" scope="row">
-          {row.name}
+          {`${data.team1} - ${data.team2}`}
         </TableCell>
-        <TableCell align="right">{row.calories}</TableCell>
-        <TableCell align="right">{row.fat}</TableCell>
-        <TableCell align="right">{row.carbs}</TableCell>
-        <TableCell align="right">{row.protein}</TableCell>
+        <TableCell align="right">{data.odd1}</TableCell>
+        <TableCell align="right">{data.oddx}</TableCell>
+        <TableCell align="right">{data.odd2}</TableCell>
+        <TableCell align="right">{data.stadium}</TableCell>
       </TableRow>
 
       <TableRow>
@@ -32,8 +33,9 @@ export const TableBodyRow = (props: { row: ReturnType<typeof createData> }) => {
               <Typography variant="h6" gutterBottom component="div">
                 History
               </Typography>
-
-              <HistoryTable row={row} />
+              {/* <HistoryTable row={row} />
+               Whenever we solve the case of admin knowing the particular bet a user have placed then we have solve this
+              */}
             </Box>
           </Collapse>
         </TableCell>
