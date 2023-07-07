@@ -31,6 +31,7 @@ export const useFetchedBets = () => {
         stadium: data[key].stadium,
       });
     }
+
     setBetData(loadedMatches);
     return data;
   });

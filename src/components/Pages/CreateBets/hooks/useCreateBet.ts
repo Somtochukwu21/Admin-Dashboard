@@ -32,7 +32,6 @@ export const useCreateBet = () => {
       stadium,
     };
 
-    console.log(newId, newBet);
     setBets([...bets, newBet]);
 
     mutation.mutate(newBet);

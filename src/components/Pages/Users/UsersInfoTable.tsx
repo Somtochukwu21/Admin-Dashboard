@@ -1,5 +1,4 @@
 import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
-// import { useState } from "react";
 import { Card } from "../../Global/Card/Card";
 import { MaxCard } from "../../Global/Card/MaxCard/MaxCard";
 
@@ -15,29 +14,34 @@ const columns: GridColDef[] = [
     width: 160,
     valueGetter: (params: GridValueGetterParams) => `${params.row.firstName || ""} ${params.row.lastName || ""}`,
   },
+  { field: "block", headerName: "Block Users", width: 120 },
+  { field: "delete", headerName: "delete Users", width: 120 },
 ];
 
 const rows = [
-  { id: 1, active: false, AllUsers: "Snow", firstName: "Jon" },
-  { id: 2, active: false, AllUsers: "Lannister", firstName: "Cersei" },
-  { id: 3, active: false, AllUsers: "Lannister", firstName: "Jaime" },
-  { id: 4, active: false, AllUsers: "Stark", firstName: "Arya" },
-  { id: 5, active: false, AllUsers: "Targaryen", firstName: "Daenerys" },
-  { id: 6, active: false, AllUsers: "Melisandre", firstName: "Emeka" },
-  { id: 7, active: false, AllUsers: "Clifford", firstName: "Ferrara" },
-  { id: 8, active: false, AllUsers: "Frances", firstName: "Rossini" },
-  { id: 9, active: false, AllUsers: "Roxie", firstName: "Harvey" },
+  { id: 1, active: false, AllUsers: "Snow", firstName: "Jon", delete: "Delect User", block: "Block user" },
+  { id: 2, active: false, AllUsers: "Lannister", firstName: "Cersei", delete: "Delect User", block: "Block user" },
+  { id: 3, active: false, AllUsers: "Lannister", firstName: "Jaime", delete: "Delect User", block: "Block user" },
+  { id: 4, active: false, AllUsers: "Stark", firstName: "Arya", delete: "Delect User", block: "Block user" },
+  {
+    id: 5,
+    active: false,
+    AllUsers: "Targaryen",
+    firstName: "Daenerys",
+    delete: "Delect User",
+    block: "Block user",
+  },
+  { id: 6, active: false, AllUsers: "Melisandre", firstName: "Emeka", delete: "Delect User", block: "Block user" },
+  { id: 7, active: false, AllUsers: "Clifford", firstName: "Ferrara", delete: "Delect User", block: "Block user" },
+  { id: 8, active: false, AllUsers: "Frances", firstName: "Rossini", delete: "Delect User", block: "Block user" },
+  { id: 9, active: false, AllUsers: "Roxie", firstName: "Harvey", delete: "Delect User", block: "Block user" },
 ];
 
 export const UsersInfoTable = () => {
-  // const [posts, setPosts] = useState([]);
-  // const handleDelete = (postIndex: any) => {
-  //   setPosts(prevPosts => prevPosts.filter((_, index) => index !== postIndex));
-  // };
   return (
     <MaxCard>
       <Card className="sm:mt-20 md:mt-0">
-        <div style={{ height: "auto", width: "100%", background: "white" }}>
+        <div className="h-auto w-full bg-white">
           <DataGrid
             rows={rows}
             columns={columns}
@@ -49,9 +53,6 @@ export const UsersInfoTable = () => {
             pageSizeOptions={[5, 10]}
             checkboxSelection
           />
-          {/* <Button variant="outlined" color="error" onClick={() => handleDelete(postIndex)}>
-            Delete
-          </Button> */}
         </div>
       </Card>
     </MaxCard>
