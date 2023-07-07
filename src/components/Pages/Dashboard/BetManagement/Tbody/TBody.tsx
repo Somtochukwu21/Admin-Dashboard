@@ -1,16 +1,11 @@
 import { TableBody } from "@mui/material";
-import { useEffect } from "react";
-import { useFetchedBets } from "../../../../Global/hooks/useFetchedBets";
+import { Bet } from "../../../CreateBets/CreateBetForm/Bet";
 import { TableBodyRow } from "./TBodyRow/TBodyRow";
 
 interface Props {
-  loading: (loading: boolean) => void;
+  betData: Bet[];
 }
-export const TBody: React.FC<Props> = ({ loading }) => {
-  const { betData, isLoading } = useFetchedBets();
-  useEffect(() => {
-    loading(isLoading);
-  }, [isLoading, loading]);
+export const TBody: React.FC<Props> = ({ betData }) => {
   return (
     <TableBody>
       {betData.map((data, i) => (

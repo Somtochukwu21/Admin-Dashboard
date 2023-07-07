@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useFetchedBets } from "../../../Global/hooks/useFetchedBets";
 import { Bet } from "../../CreateBets/CreateBetForm/Bet";
 import { TbodyRow } from "./TbodyRow/TbodyRow";
@@ -10,7 +10,11 @@ import { TbodyRow } from "./TbodyRow/TbodyRow";
 // }
 
 export const Tbody = () => {
-  const { betData } = useFetchedBets();
+  const { betData, isLoading } = useFetchedBets();
+
+  useEffect(() => {
+    console.log(isLoading);
+  }, [isLoading]);
 
   const [upDatedData, setUpDatedData] = useState<Bet[]>();
 
