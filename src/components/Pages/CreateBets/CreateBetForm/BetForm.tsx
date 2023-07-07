@@ -37,33 +37,41 @@ export const BetForm: React.FC = () => {
     <MaxCard>
       <Card className="sm:mt-20 md:mt-0">
         <form onSubmit={handleSubmit} className="flex flex-col bg-white p-4 ">
-          <label htmlFor="team1">Home Team 1:</label>
-          <Input type="text" id="team1" value={team1} onChange={e => setTeam1(e.target.value)} />
+          <div>
+            <label htmlFor="team1">Home Team 1:</label>
+            <Input type="text" id="team1" value={team1} onChange={e => setTeam1(e.target.value)} />
+          </div>
+          <div className="mt-4">
+            <label htmlFor="team2">Away Team 2:</label>
+            <Input type="text" id="team2" value={team2} onChange={e => setTeam2(e.target.value)} />
+          </div>
+          <div className="mt-4">
+            <label htmlFor="odd1">Home Odd 1:</label>
+            <Input type="number" id="odd1" value={odd1} onChange={e => setOdd1(e.target.value)} />
+          </div>
+          <div className="mt-4">
+            <label htmlFor="oddx">Draw Odd x:</label>
+            <Input type="number" id="oddx" value={oddx} onChange={e => setOddx(e.target.value)} />
+          </div>
+          <div className="mt-4">
+            <label htmlFor="odd2">Away Odd 2:</label>
+            <Input type="number" id="odd2" value={odd2} onChange={e => setOdd2(e.target.value)} />
+          </div>
 
-          <label htmlFor="team2">Away Team 2:</label>
-          <Input type="text" id="team2" value={team2} onChange={e => setTeam2(e.target.value)} />
-
-          <label htmlFor="odd1">Home Odd 1:</label>
-          <Input type="number" id="odd1" value={odd1} onChange={e => setOdd1(e.target.value)} />
-
-          <label htmlFor="oddx">Draw Odd x:</label>
-          <Input type="number" id="oddx" value={oddx} onChange={e => setOddx(e.target.value)} />
-
-          <label htmlFor="odd2">Away Odd 2:</label>
-          <Input type="number" id="odd2" value={odd2} onChange={e => setOdd2(e.target.value)} />
-
-          <select
-            value={stadium}
-            id="stadium"
-            className="w-auto border-none bg-transparent py-4 outline-none"
-            onChange={e => setStadium(e.target.value)}
-          >
-            <option onChange={stopInput}>Select Stadium</option>
-            <option>Uk Stadium</option>
-            <option>Us Stadium</option>
-            <option>Barca Stadium</option>
-            <option>Ufc Stadium</option>
-          </select>
+          <div className="mt-4">
+            <select
+              value={stadium}
+              id="stadium"
+              className="w-[125px] border-none bg-transparent py-4 outline-none"
+              onChange={e => setStadium(e.target.value)}
+            >
+              <option onChange={stopInput}>Select Stadium</option>
+              <option>Uk Stadium</option>
+              <option>Us Stadium</option>
+              <option>Barca Stadium</option>
+              <option>Ufc Stadium</option>
+            </select>
+          </div>
 
           <Button type="submit">Submit</Button>
         </form>
