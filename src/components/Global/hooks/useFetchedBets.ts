@@ -8,7 +8,7 @@ export const useFetchedBets = () => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
   const queryKey = ["bets", "https://gobet-admin-dashboard-default-rtdb.firebaseio.com/predictbet.json"];
-  const { data, isSuccess, isError } = useQuery(queryKey, async () => {
+  const { data, isSuccess, isError, isLoading } = useQuery(queryKey, async () => {
     const response = await fetch("https://gobet-admin-dashboard-default-rtdb.firebaseio.com/predictbet.json");
 
     if (isSuccess) {
@@ -35,5 +35,5 @@ export const useFetchedBets = () => {
     return data;
   });
 
-  return { betData, data, success, error };
+  return { betData, data, success, error, isLoading };
 };

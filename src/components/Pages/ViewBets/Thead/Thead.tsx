@@ -1,12 +1,12 @@
 import { TableCell, TableHead, TableRow } from "@mui/material";
 
-export const THead = () => {
-  const texts = ["", "HOME team - AWAY team", "1", "x", "2", "Stadium"];
+export const Thead = () => {
+  const texts = ["HOME team - AWAY team", "1", "x", "2", "Stadium", "Actions"];
   return (
     <TableHead>
       <TableRow>
         {texts.map((text, i) => {
-          const right = i > 1 ? "right" : "left";
+          const right = i > 0 ? "right" : "left";
 
           return (
             <TableCell key={i} align={`${right}`}>

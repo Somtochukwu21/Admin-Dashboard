@@ -4,7 +4,13 @@ type ButtonType = React.ComponentProps<"button"> & { children: ReactNode };
 
 export const Button = ({ className, children, ...props }: ButtonType) => {
   return (
-    <button className={`rounded border-none bg-accent p-2 font-bold text-white outline-none ${className}`}>
+    <button
+      // ...props
+
+      className={` rounded  border-none bg-accent  p-2 font-bold
+   text-white outline-none
+ active:scale-95 ${className}`}
+    >
       {children}{" "}
     </button>
   );
