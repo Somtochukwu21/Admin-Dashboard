@@ -7,7 +7,7 @@ import { Tbody } from "../Tbody/Tbody";
 export const AllBet: React.FC = () => {
   const texts = ["HOME team - AWAY team", "1", "x", "2", "Stadium", "Actions"];
   return (
-    <Card className="overflow-x-scroll">
+    <Card className="no-scroll mt-20 overflow-x-scroll md:mt-0">
       <Table>
         <TableHead>
           <TableHeader textArr={texts} from={0} />

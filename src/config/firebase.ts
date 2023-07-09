@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getDatabase } from "firebase/database";
 const firebaseConfig = {
   apiKey: "AIzaSyCxwM__XLeUBOGTCihlBU_YoWtCYuze8rQ",
   authDomain: "gobet-admin-dashboard.firebaseapp.com",
@@ -9,4 +10,5 @@ const firebaseConfig = {
   appId: "1:1036518452845:web:20e0deac10fa5754541964",
 };
 
-export const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+export const db = getDatabase(app);

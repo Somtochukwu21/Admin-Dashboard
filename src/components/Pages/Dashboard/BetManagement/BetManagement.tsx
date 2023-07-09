@@ -12,7 +12,7 @@ export function BetManagement() {
   const { betData, isLoading } = useFetchedBets();
   const texts = ["", "HOME team - AWAY team", "1", "x", "2", "Stadium"];
   return (
-    <Card className="overflow-x-scroll">
+    <Card className="no-scroll overflow-x-scroll">
       <TextWrap className="p-2 text-sm capitalize">football matches</TextWrap>
       {isLoading ? (
         <SkeletonFade />
