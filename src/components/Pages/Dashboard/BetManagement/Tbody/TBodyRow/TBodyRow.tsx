@@ -2,11 +2,9 @@ import { Box, Collapse, IconButton, TableCell, TableRow, Typography } from "@mui
 import { Fragment, useState } from "react";
 import { BiSolidDownArrow, BiSolidUpArrow } from "react-icons/bi";
 import { Bet } from "../../../../CreateBets/CreateBetForm/Bet";
-
-export const TableBodyRow = (props: { data: Bet }) => {
-  const { data } = props;
+type PropType = { data: Bet };
+export const TableBodyRow = ({ data }: PropType) => {
   const [open, setOpen] = useState(false);
-  // console.log(props);
 
   return (
     <Fragment>

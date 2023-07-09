@@ -1,16 +1,15 @@
 import { TableCell, TableRow } from "@mui/material";
+import { ReactNode } from "react";
+import { AiFillDelete } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
 import { Button } from "../../../../Global/Button/Button";
 import { Bet } from "../../../CreateBets/CreateBetForm/Bet";
 type PropType = {
   data: Bet;
-  update: (id: string) => void;
+  update: (id: ReactNode) => void;
 };
-export const TbodyRow = ({ data, update }: PropType) => {
-  const handleDelete = () => {
-    console.log("Data");
-  };
 
+export const TbodyRow = ({ data, update }: PropType) => {
   return (
     <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
       <TableCell component="th" scope="row">
@@ -24,21 +23,16 @@ export const TbodyRow = ({ data, update }: PropType) => {
         <Button>
           <FiEdit />
         </Button>
-        <button
-          onClick={() => {
-            console.log(data);
-          }}
-        >
-          Hey
-        </button>
-        {/* <Button
+
+        <Button
           className=" ml-3 bg-red-400 "
           onClick={() => {
-            console.log(data);
+            // console.log(data.id);
+            update(data.id);
           }}
         >
           <AiFillDelete />
-        </Button> */}
+        </Button>
       </TableCell>
     </TableRow>
   );
