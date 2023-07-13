@@ -6,7 +6,9 @@ export const Users = () => {
   return (
     <MaxCard className=" bg-primary text-xl font-semibold text-gray-900 ">
       <Header routerName="Users" />
-      <UsersInfoTable />
+      <div className="px-3">
+        <UsersInfoTable />
+      </div>
     </MaxCard>
   );
 };

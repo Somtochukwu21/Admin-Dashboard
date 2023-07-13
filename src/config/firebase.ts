@@ -1,7 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCxwM__XLeUBOGTCihlBU_YoWtCYuze8rQ",
+  apiKey: process.env.REACT_APP_FIREBASE_KEY,
   authDomain: "gobet-admin-dashboard.firebaseapp.com",
   databaseURL: "https://gobet-admin-dashboard-default-rtdb.firebaseio.com",
   projectId: "gobet-admin-dashboard",
