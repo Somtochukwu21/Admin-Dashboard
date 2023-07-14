@@ -1,9 +1,9 @@
 import { Dialog, DialogContent, DialogTitle } from "@mui/material";
-import { Bet } from "../../Pages/CreateBets/CreateBetForm/Bet";
 import { AlertError } from "../Alert/Alert";
 import { AlertSuccess } from "../Alert/AlertSuccess";
 import { Button } from "../Button/Button";
 import { Input } from "../Input/Input";
+import { Bet } from "../types/Bet";
 import { useFormDialogue } from "./hooks/useFormDialogue";
 
 type PropType = {

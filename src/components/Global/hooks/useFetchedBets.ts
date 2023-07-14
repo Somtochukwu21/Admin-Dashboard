@@ -1,7 +1,7 @@
 import "firebase/firestore";
 import { useState } from "react";
 import { useQuery } from "react-query";
-import { Bet } from "../../Pages/CreateBets/CreateBetForm/Bet";
+import { Bet } from "../types/Bet";
 
 export const useFetchedBets = () => {
   const [betData, setBetData] = useState<Bet[]>([]);

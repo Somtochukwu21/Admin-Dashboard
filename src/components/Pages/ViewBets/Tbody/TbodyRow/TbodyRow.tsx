@@ -5,7 +5,7 @@ import { FiEdit } from "react-icons/fi";
 import { Button } from "../../../../Global/Button/Button";
 import { DeleteDialog } from "../../../../Global/DialogBox/DeleteDialog";
 import FormDialog from "../../../../Global/DialogBox/FormDialogue";
-import { Bet } from "../../../CreateBets/CreateBetForm/Bet";
+import { Bet } from "../../../../Global/types/Bet";
 type PropType = {
   data: Bet;
 };

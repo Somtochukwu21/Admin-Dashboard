@@ -1,9 +1,9 @@
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
 import { ref, remove } from "firebase/database";
 import { db } from "../../../config/firebase";
-import { Bet } from "../../Pages/CreateBets/CreateBetForm/Bet";
 import { Button } from "../Button/Button";
 import { useFetchedBets } from "../hooks/useFetchedBets";
+import { Bet } from "../types/Bet";
 type PropType = {
   data: Bet;
   onOpen: boolean;

@@ -1,8 +1,8 @@
 import { ref, update } from "firebase/database";
 import { useState } from "react";
 import { db } from "../../../../config/firebase";
-import { Bet } from "../../../Pages/CreateBets/CreateBetForm/Bet";
 import { useFetchedBets } from "../../hooks/useFetchedBets";
+import { Bet } from "../../types/Bet";
 
 export const useFormDialogue = (handleClose: () => void, data: Bet) => {
   const [team1, setTeam1] = useState(data.team1);

@@ -4,7 +4,6 @@ import { Card } from "../../Global/Card/Card";
 import { useUsers } from "../../Global/hooks/useUsers";
 import { TableHeader } from "../../Global/Table/TableHeader/TableHeader";
 import { UsersInfoRow } from "./UsersInfoRow";
-// import { UsersInfoRow } from "./UsersInfoRow";
 
 export const UsersInfoTable = () => {
   const { fetchedUsers } = useUsers();
@@ -23,22 +22,5 @@ export const UsersInfoTable = () => {
         </TableBody>
       </Table>
     </Card>
-    // <MaxCard>
-    //   <Card className="sm:mt-20 md:mt-0">
-    //     <div className="h-auto w-full bg-white">
-    //       <DataGrid
-    //         rows={rows}
-    //         columns={columns}
-    //         initialState={{
-    //           pagination: {
-    //             paginationModel: { page: 0, pageSize: 5 },
-    //           },
-    //         }}
-    //         pageSizeOptions={[5, 10]}
-    //         checkboxSelection
-    //       />
-    //     </div>
-    //   </Card>
-    // </MaxCard>
   );
 };

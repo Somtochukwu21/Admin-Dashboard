@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { DataType } from "./Interface";
+import { DataType } from "../types/Datatype";
 
 export const useUsers = () => {
   const [usersData, setUsersData] = useState<DataType[]>();
@@ -20,7 +20,7 @@ export const useUsers = () => {
   useEffect(() => {
     fetchUser();
   }, []);
-  // const { usersData } = useUsers();
+
   const fetchedUsers = usersData?.filter(obj => obj.hasOwnProperty("id"));
   return { fetchedUsers };
 };
