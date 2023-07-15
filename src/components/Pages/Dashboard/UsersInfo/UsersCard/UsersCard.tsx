@@ -7,17 +7,18 @@ type UserCardType = React.ComponentProps<"div"> & {
   icon?: ReactNode;
   info?: ReactNode;
   percent?: ReactNode;
+  content?: string;
 };
 
-export const UserCard = ({ className, icon, info, percent, ...props }: UserCardType) => {
+export const UserCard = ({ className, icon, info, percent, content }: UserCardType) => {
   return (
-    <Card className="sm:w-[100%] lg:w-[33.3%]">
+    <Card className="sm:w-[100%] lg:w-[50%]">
       <div className="flex justify-between">
         {info}
         <div className="rounded-full bg-[rgba(0,153,153,.4)] p-2 text-secondary">{icon}</div>
       </div>
       <div className="mt-3">
-        <TextWrap>NaN</TextWrap>
+        <TextWrap className={className}>{content}</TextWrap>
       </div>
       <div className="mt-3">
         <div className="flex items-center space-x-4 text-[12px] text-green-500">

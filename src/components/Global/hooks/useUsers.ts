@@ -1,26 +1,16 @@
-import { useEffect, useState } from "react";
+import { useQuery } from "react-query";
 import { DataType } from "../types/Datatype";
 
 export const useUsers = () => {
-  const [usersData, setUsersData] = useState<DataType[]>();
   const fetchUser = async () => {
-    try {
-      const response = await fetch("https://gobet-admin-dashboard-default-rtdb.firebaseio.com/users.json");
-      if (!response.ok) {
-        console.log("error");
-      }
+    const response = await fetch("https://gobet-admin-dashboard-default-rtdb.firebaseio.com/users.json");
 
-      const data: DataType[] = await response.json();
-      const fetchData = Object.values(data);
-      setUsersData(fetchData);
-    } catch (e: any) {
-      console.log("error", e);
-    }
+    const data: DataType[] = await response.json();
+    const fetchData = Object.values(data);
+    return fetchData;
   };
-  useEffect(() => {
-    fetchUser();
-  }, []);
 
-  const fetchedUsers = usersData?.filter(obj => obj.hasOwnProperty("id"));
-  return { fetchedUsers };
+  const { data, isLoading, isError } = useQuery("user", fetchUser);
+
+  return { data, isLoading, isError };
 };

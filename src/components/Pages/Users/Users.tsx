@@ -1,6 +1,6 @@
 import { MaxCard } from "../../Global/Card/MaxCard/MaxCard";
 import { Header } from "../../Layouts/Header/Header";
-import { UsersInfoTable } from "./UsersInfoTable";
+import { UsersInfoTable } from "./UsersInforRow/UsersInfoTable";
 
 export const Users = () => {
   return (

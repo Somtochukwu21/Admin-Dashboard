@@ -14,7 +14,7 @@ export function BetManagement() {
     <Card className="no-scroll overflow-x-scroll">
       <TextWrap className="p-2 text-sm capitalize">football matches</TextWrap>
       {isLoading ? (
-        <SkeletonFade />
+        <SkeletonFade width={600} height={280} />
       ) : (
         <Table aria-label="collapsible table">
           <TableHead>
