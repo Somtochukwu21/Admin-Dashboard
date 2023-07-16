@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useBets } from "../../../Global/hooks/usePostedBets";
-import { Bet } from "../CreateBetForm/Bet";
+import { Bet } from "../../../Global/types/Bet";
 export const useCreateBet = () => {
   const [bets, setBets] = useState<Bet[]>([]);
   const [team1, setTeam1] = useState("");

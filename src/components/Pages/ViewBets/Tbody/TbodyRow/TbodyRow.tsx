@@ -1,15 +1,27 @@
 import { TableCell, TableRow } from "@mui/material";
-import { ReactNode } from "react";
+import { useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
 import { Button } from "../../../../Global/Button/Button";
-import { Bet } from "../../../CreateBets/CreateBetForm/Bet";
+import { DeleteDialog } from "../../../../Global/DialogBox/DeleteDialog";
+import FormDialog from "../../../../Global/DialogBox/FormDialogue";
+import { Bet } from "../../../../Global/types/Bet";
 type PropType = {
   data: Bet;
-  update: (id: ReactNode) => void;
 };
 
-export const TbodyRow = ({ data, update }: PropType) => {
+export const TbodyRow = ({ data }: PropType) => {
+  const [open, setOpen] = useState(false);
+  const [openEdit, setOpenEdit] = useState(false);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleEditClose = () => {
+    setOpenEdit(false);
+  };
+
   return (
     <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
       <TableCell component="th" scope="row">
@@ -20,19 +32,16 @@ export const TbodyRow = ({ data, update }: PropType) => {
       <TableCell align="right">{data.odd2}</TableCell>
       <TableCell align="right">{data.stadium}</TableCell>
       <TableCell align="right">
-        <Button>
+        <Button className="mb-4 md:mb-0" onClick={() => setOpenEdit(true)}>
           <FiEdit />
         </Button>
 
-        <Button
-          className=" ml-3 bg-red-400 "
-          onClick={() => {
-            // console.log(data.id);
-            update(data.id);
-          }}
-        >
+        <Button className=" ml-3 bg-red-400 " onClick={() => setOpen(true)}>
           <AiFillDelete />
         </Button>
+
+        {open && <DeleteDialog onOpen={open} handleClose={handleClose} data={data} />}
+        {openEdit && <FormDialog onOpen={openEdit} handleClose={handleEditClose} data={data} />}
       </TableCell>
     </TableRow>
   );

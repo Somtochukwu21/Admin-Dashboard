@@ -1,7 +1,7 @@
 import "firebase/firestore";
 import { useState } from "react";
 import { useQuery } from "react-query";
-import { Bet } from "../../Pages/CreateBets/CreateBetForm/Bet";
+import { Bet } from "../types/Bet";
 
 export const useFetchedBets = () => {
   const [betData, setBetData] = useState<Bet[]>([]);
@@ -11,7 +11,7 @@ export const useFetchedBets = () => {
     "bets",
     'https://gobet-admin-dashboard-default-rtdb.firebaseio.com/predictbet.json?orderBy="$priority"&limitToFirst=10',
   ];
-  const { data, isSuccess, isError, isLoading } = useQuery(queryKey, async () => {
+  const { data, isSuccess, isError, isLoading, refetch } = useQuery(queryKey, async () => {
     const response = await fetch(
       'https://gobet-admin-dashboard-default-rtdb.firebaseio.com/predictbet.json?orderBy="$priority"&limitToFirst=10'
     );
@@ -41,5 +41,5 @@ export const useFetchedBets = () => {
     return data;
   });
 
-  return { betData, data, success, error, isLoading, isSuccess };
+  return { betData, data, success, error, isLoading, isSuccess, refetch };
 };

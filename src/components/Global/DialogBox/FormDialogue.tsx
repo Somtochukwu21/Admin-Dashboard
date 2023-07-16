@@ -1,0 +1,141 @@
+import { Dialog, DialogContent, DialogTitle } from "@mui/material";
+import { AlertError } from "../Alert/Alert";
+import { AlertSuccess } from "../Alert/AlertSuccess";
+import { Button } from "../Button/Button";
+import { Input } from "../Input/Input";
+import { Bet } from "../types/Bet";
+import { useFormDialogue } from "./hooks/useFormDialogue";
+
+type PropType = {
+  data: Bet;
+  onOpen: boolean;
+  handleClose: () => void;
+};
+
+export default function FormDialog({ onOpen, handleClose, data }: PropType) {
+  const {
+    handleSubmit,
+    team1,
+    setTeam1,
+    setTeam2,
+    team2,
+    setOdd1,
+    odd1,
+    oddX,
+    setOddX,
+    odd2,
+    setOdd2,
+    stadium,
+    setStadium,
+    showAlert,
+    setShowAlert,
+    success,
+    error,
+  } = useFormDialogue(handleClose, data);
+  return (
+    <div>
+      <Dialog open={onOpen} onClose={handleClose}>
+        <DialogTitle>EDIT</DialogTitle>
+        <DialogContent sx={{ "::-webkit-scrollbar": { display: "none" } }}>
+          <form
+            onSubmit={e => {
+              e.preventDefault();
+              const id = data.id;
+              handleSubmit(id as string);
+            }}
+            className="flex flex-col bg-white md:space-y-4"
+          >
+            <div className="md:flex md:items-center md:space-x-4 md:[&>*]:w-1/2 ">
+              <div>
+                <label htmlFor="team1">Home Team 1:</label>
+                <Input
+                  type="text"
+                  id="team1"
+                  value={team1}
+                  placeholder="Enter home team"
+                  onChange={e => setTeam1(e.target.value)}
+                />
+              </div>
+              <div className="mt-4 md:mt-0">
+                <label htmlFor="team2">Away Team 2:</label>
+                <Input
+                  type="text"
+                  id="team2"
+                  placeholder="Enter away team"
+                  value={team2}
+                  onChange={e => setTeam2(e.target.value)}
+                />
+              </div>
+            </div>
+            <div className="md:flex md:items-center md:space-x-4 md:[&>*]:w-1/2">
+              <div className="mt-4 md:mt-0">
+                <label htmlFor="odd1">Home Odd 1:</label>
+                <Input
+                  type="number"
+                  id="odd1"
+                  placeholder="Enter home odd"
+                  value={odd1}
+                  onChange={e => setOdd1(e.target.value)}
+                />
+              </div>
+              <div className="mt-4 md:mt-0">
+                <label htmlFor="oddx">Draw Odd x:</label>
+                <Input
+                  type="number"
+                  placeholder="Enter draw odd"
+                  id="oddx"
+                  value={oddX}
+                  onChange={e => setOddX(e.target.value)}
+                />
+              </div>
+            </div>
+            <div className=" md:flex md:items-end  md:space-x-4">
+              <div className="mt-4 md:mt-0 md:w-3/4">
+                <label htmlFor="odd2">Away Odd 2:</label>
+                <Input
+                  type="number"
+                  id="odd2"
+                  value={odd2}
+                  placeholder="Enter away odd"
+                  onChange={e => setOdd2(e.target.value)}
+                />
+              </div>
+
+              <div className="mt-4 md:mt-0">
+                <select
+                  value={stadium}
+                  id="stadium"
+                  className="border-none bg-transparent outline-none hover:cursor-pointer"
+                  onChange={e => setStadium(e.target.value)}
+                >
+                  <option
+                  // onChange={ stopInput }
+                  >
+                    Select Stadium
+                  </option>
+                  <option>Uk Stadium</option>
+                  <option>Us Stadium</option>
+                  <option>Barca Stadium</option>
+                  <option>Ufc Stadium</option>
+                </select>
+              </div>
+            </div>
+            <div className="mt-7 w-full">
+              <Button type="submit" className="w-full">
+                Submit
+              </Button>
+            </div>
+          </form>
+
+          {showAlert ? (
+            <AlertError onClose={() => setShowAlert(false)}>Your input can not be left empty</AlertError>
+          ) : (
+            ""
+          )}
+          {success ? <AlertSuccess onClose={() => setShowAlert(false)}>Sent Successfull</AlertSuccess> : false}
+          {error ? <AlertError onClose={() => setShowAlert(false)}>Check Your Internet Connection</AlertError> : false}
+        </DialogContent>
+      </Dialog>
+    </div>
+  );
+}

@@ -1,7 +1,7 @@
 import { TableCell } from "@mui/material";
 import { Fragment } from "react";
-import { Bet } from "../../../../Pages/CreateBets/CreateBetForm/Bet";
-import { useFetchedBets } from "../../../hooks/useFetchedBets";
+import { useFetchedBets } from "../../hooks/useFetchedBets";
+import { Bet } from "../../types/Bet";
 export const TableDataRows = () => {
   const { betData } = useFetchedBets();
   // return <></>;
