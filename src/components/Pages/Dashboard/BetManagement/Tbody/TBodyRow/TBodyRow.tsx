@@ -11,7 +11,7 @@ export const TableBodyRow = ({ data }: PropType) => {
       <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
         <TableCell>
           <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)}>
-            {open ? <BiSolidUpArrow /> : <BiSolidDownArrow />}
+            {open ? <BiSolidDownArrow /> : <BiSolidUpArrow />}
           </IconButton>
         </TableCell>
 

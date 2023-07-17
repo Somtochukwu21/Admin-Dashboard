@@ -24,7 +24,7 @@ export const useBets = () => {
     }
 
     const data = await response.json();
-    const loadedMatches: Bet[] = [];
+    const loadedMatches: any = [];
     for (const key in data) {
       loadedMatches.push({
         id: key,

@@ -1,4 +1,7 @@
+// import { GrFormNext } from "react-icons/gr";
+import { Link } from "react-router-dom";
 import { useUsers } from "../../../../Global/Api/useUsers";
+import { Button } from "../../../../Global/Button/Button";
 import { TextWrap } from "../../../../Global/TextWrap/TextWrap";
 import { UsersTemplate } from "../UsersTemplate/UsersTemplate";
 
@@ -14,6 +17,11 @@ export const ActiveUsers = () => {
           {paginatedData.map((user, i) => (
             <UsersTemplate src={user.displayName.charAt(0).toLocaleUpperCase()} name={user.displayName} key={i} />
           ))}
+          <div className="flex justify-end">
+            <Link to="/users">
+              <Button>View all</Button>
+            </Link>
+          </div>
         </div>
       ) : (
         <TextWrap className="mt-4 animate-pulse">Loading..</TextWrap>

@@ -7,10 +7,10 @@ export const useUsers = () => {
 
     const data: DataType[] = await response.json();
     const fetchedData = Object.values(data);
+
     return fetchedData;
   };
 
   const { data, isLoading, isError, isSuccess } = useQuery("Data", fetchData);
-
   return { data, isLoading, isError, isSuccess };
 };
