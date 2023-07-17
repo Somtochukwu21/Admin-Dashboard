@@ -1,10 +1,10 @@
 import { TableBody } from "@mui/material";
 import { useEffect } from "react";
-import { useFetchedBets } from "../../../Global/hooks/useFetchedBets";
+import { useBets } from "../../../Global/Api/useBets";
 import { TbodyRow } from "./TbodyRow/TbodyRow";
 
 export const Tbody = () => {
-  const { betData, isLoading } = useFetchedBets();
+  const { betData, isLoading } = useBets();
 
   useEffect(() => {}, [isLoading]);
 

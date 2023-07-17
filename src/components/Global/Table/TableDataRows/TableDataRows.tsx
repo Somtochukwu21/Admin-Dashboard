@@ -1,10 +1,10 @@
 import { TableCell } from "@mui/material";
 import { Fragment } from "react";
-import { useFetchedBets } from "../../hooks/useFetchedBets";
+import { useBets } from "../../Api/useBets";
 import { Bet } from "../../types/Bet";
+
 export const TableDataRows = () => {
-  const { betData } = useFetchedBets();
-  // return <></>;
+  const { betData } = useBets();
 
   return (
     <>
@@ -16,8 +16,6 @@ export const TableDataRows = () => {
 };
 
 const Tr = ({ data }: { data: Bet }) => {
-  console.log(data);
-
   return (
     <Fragment>
       <TableCell component="th" scope="row">

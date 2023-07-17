@@ -1,7 +1,7 @@
 import { ref, update } from "firebase/database";
 import { useState } from "react";
 import { db } from "../../../../config/firebase";
-import { useFetchedBets } from "../../hooks/useFetchedBets";
+import { useBets } from "../../Api/useBets";
 import { Bet } from "../../types/Bet";
 
 export const useFormDialogue = (handleClose: () => void, data: Bet) => {
@@ -12,7 +12,7 @@ export const useFormDialogue = (handleClose: () => void, data: Bet) => {
   const [oddX, setOddX] = useState(String(data.oddx));
   const [stadium, setStadium] = useState(data.stadium);
   const [showAlert, setShowAlert] = useState(false);
-  const { error, success } = useFetchedBets();
+  const { error, success } = useBets();
   const newId = Math.floor(Math.random() * 100);
   const newBet: Bet = {
     id: newId,

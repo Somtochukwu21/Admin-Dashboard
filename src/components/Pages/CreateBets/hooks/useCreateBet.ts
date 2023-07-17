@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useBets } from "../../../Global/hooks/usePostedBets";
+import { usePostedBets } from "../../../Global/Api/usePostedBets";
 import { Bet } from "../../../Global/types/Bet";
 export const useCreateBet = () => {
   const [bets, setBets] = useState<Bet[]>([]);
@@ -11,7 +11,7 @@ export const useCreateBet = () => {
   const [stadium, setStadium] = useState("");
   const [showAlert, setShowAlert] = useState(false);
 
-  const { mutation } = useBets();
+  const { mutation } = usePostedBets();
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
 

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useQuery } from "react-query";
 import { Bet } from "../types/Bet";
 
-export const useFetchedBets = () => {
+export const useBets = () => {
   const [betData, setBetData] = useState<Bet[]>([]);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);

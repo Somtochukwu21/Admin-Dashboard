@@ -2,7 +2,6 @@ import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } 
 import { ref, remove } from "firebase/database";
 import { db } from "../../../config/firebase";
 import { Button } from "../Button/Button";
-import { useFetchedBets } from "../hooks/useFetchedBets";
 import { Bet } from "../types/Bet";
 type PropType = {
   data: Bet;
@@ -11,11 +10,9 @@ type PropType = {
 };
 
 export const DeleteDialog = ({ onOpen, handleClose, data }: PropType) => {
-  const { refetch } = useFetchedBets();
   const handleDelete = (id: string) => {
-    remove(ref(db, `/predictbet/${id}`))
-      .then(() => refetch())
-      .then(() => handleClose());
+    remove(ref(db, `/predictbet/${id}`));
+    handleClose();
   };
 
   return (
