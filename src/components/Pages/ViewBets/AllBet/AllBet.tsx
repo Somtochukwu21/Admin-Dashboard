@@ -1,13 +1,13 @@
 import { Table, TableHead } from "@mui/material";
 import React from "react";
+import { useBets } from "../../../Global/Api/useBets";
 import { Card } from "../../../Global/Card/Card";
-import { useFetchedBets } from "../../../Global/hooks/useFetchedBets";
 import { SkeletonFade } from "../../../Global/SkeletonFade/SkeletonFade";
 import { TableHeader } from "../../../Global/Table/TableHeader/TableHeader";
 import { Tbody } from "../Tbody/Tbody";
 
 export const AllBet: React.FC = () => {
-  const { isLoading } = useFetchedBets();
+  const { isLoading } = useBets();
   const texts = ["HOME team - AWAY team", "1", "x", "2", "Stadium", "Actions"];
   return (
     <Card className="no-scroll mt-20 overflow-x-scroll md:mt-0">

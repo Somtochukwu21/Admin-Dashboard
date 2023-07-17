@@ -1,15 +1,14 @@
 import { AlertError } from "../../../Global/Alert/Alert";
 import { AlertSuccess } from "../../../Global/Alert/AlertSuccess";
+import { useBets } from "../../../Global/Api/useBets";
 import { Button } from "../../../Global/Button/Button";
 import { Card } from "../../../Global/Card/Card";
 import { MaxCard } from "../../../Global/Card/MaxCard/MaxCard";
-import { useFetchedBets } from "../../../Global/hooks/useFetchedBets";
 import { Input } from "../../../Global/Input/Input";
 import { useCreateBet } from "../hooks/useCreateBet";
 
 export const BetForm: React.FC = () => {
   const {
-    bets,
     handleSubmit,
     setShowAlert,
     team1,
@@ -27,7 +26,7 @@ export const BetForm: React.FC = () => {
     setOddx,
   } = useCreateBet();
 
-  const { betData, error, success } = useFetchedBets();
+  const { error, success } = useBets();
 
   const stopInput = () => {
     return false;

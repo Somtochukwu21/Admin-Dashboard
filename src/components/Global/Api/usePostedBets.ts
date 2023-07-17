@@ -2,7 +2,7 @@ import "firebase/firestore";
 import { useMutation } from "react-query";
 import { Bet } from "../types/Bet";
 
-export const useBets = () => {
+export const usePostedBets = () => {
   const createBet = async (betData: Bet) => {
     try {
       const response = await fetch("https://gobet-admin-dashboard-default-rtdb.firebaseio.com/predictbet.json", {
