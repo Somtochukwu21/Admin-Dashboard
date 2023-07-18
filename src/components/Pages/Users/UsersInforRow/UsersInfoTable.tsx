@@ -7,8 +7,8 @@ import { UsersInfoRow } from "./UsersInfoRow";
 
 export const UsersInfoTable = () => {
   const { data, isLoading } = useUsers();
-
   const texts = ["Name", "Email", "Action"];
+
   return (
     <Card className="no-scroll mt-20 overflow-x-scroll  md:mt-0">
       {isLoading ? (

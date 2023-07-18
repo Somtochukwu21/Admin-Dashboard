@@ -18,6 +18,7 @@ export const useBalance = () => {
           const d = data[key][i][j];
           fetchedData.push({
             id: key,
+            k: d.id,
             amount: data[key][i].amountPlacedOnBet,
             bet: d.teamPlace,
             oddVal: d.oddValue,
@@ -32,4 +33,5 @@ export const useBalance = () => {
   };
 
   const { data, isLoading, isError, isSuccess } = useQuery("amount", fetchData);
+  return { data, isLoading };
 };
