@@ -1,10 +1,7 @@
 export type Amount = {
-  id: String;
-  amountPlacedOnBet: number;
+  amount: number;
+  bet: string;
+  id: string;
+  oddType: string;
+  oddVal: number;
 };
-
-// 14QdlAnKtEY3dIzCH0P0Dgql1Uf1
-// :
-// -N__df9zd-bjF-sECOD5
-// :
-// {amountPlacedOnBet: 3000, teamPlace: {…}}

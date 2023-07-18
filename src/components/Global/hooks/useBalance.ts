@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-// import { Amount } from "../types/amount";
+import { Amount } from "../types/amount";
 
 export const useBalance = () => {
   const fetchData = async () => {
@@ -11,17 +11,24 @@ export const useBalance = () => {
 
     const data = await response.json();
 
-    const fetchedData = [];
+    const fetchedData: Amount[] = [];
     for (const key in data) {
-      const loopD = data[key];
-      for (const key in loopD) {
-        console.log(loopD[key].amountPlacedOnBet);
+      for (const i in data[key]) {
+        for (const j in data[key][i]) {
+          const d = data[key][i][j];
+          fetchedData.push({
+            id: key,
+            amount: data[key][i].amountPlacedOnBet,
+            bet: d.teamPlace,
+            oddVal: d.oddValue,
+            oddType: d.oddType,
+          });
+        }
       }
-      fetchedData.push({
-        id: key,
-      });
     }
-    return fetchedData;
+
+    const filteredData = fetchedData.filter(item => item.bet !== undefined);
+    return filteredData;
   };
 
   const { data, isLoading, isError, isSuccess } = useQuery("amount", fetchData);
