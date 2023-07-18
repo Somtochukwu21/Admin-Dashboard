@@ -1,7 +1,7 @@
 import { Table, TableHead } from "@mui/material";
 import React from "react";
-import { useBets } from "../../../Global/Api/useBets";
 import { Card } from "../../../Global/Card/Card";
+import { useBets } from "../../../Global/hooks/useBets";
 import { SkeletonFade } from "../../../Global/SkeletonFade/SkeletonFade";
 import { TableHeader } from "../../../Global/Table/TableHeader/TableHeader";
 import { Tbody } from "../Tbody/Tbody";

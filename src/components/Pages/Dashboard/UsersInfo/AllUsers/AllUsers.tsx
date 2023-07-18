@@ -1,5 +1,5 @@
 import { FiUsers } from "react-icons/fi";
-import { useUsers } from "../../../../Global/Api/useUsers";
+import { useUsers } from "../../../../Global/hooks/useUsers";
 import { UserCard } from "../UsersCard/UsersCard";
 
 export const AllUsers = () => {

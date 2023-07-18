@@ -7,14 +7,9 @@ export const useBets = () => {
   const [betData, setBetData] = useState<Bet[]>([]);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
-  const queryKey = [
-    "bets",
-    'https://gobet-admin-dashboard-default-rtdb.firebaseio.com/predictbet.json?orderBy="$priority"&limitToFirst=10',
-  ];
+  const queryKey = ["bets", "https://gobet-admin-dashboard-default-rtdb.firebaseio.com/predictbet.json"];
   const { data, isSuccess, isError, isLoading, refetch } = useQuery(queryKey, async () => {
-    const response = await fetch(
-      'https://gobet-admin-dashboard-default-rtdb.firebaseio.com/predictbet.json?orderBy="$priority"&limitToFirst=10'
-    );
+    const response = await fetch("https://gobet-admin-dashboard-default-rtdb.firebaseio.com/predictbet.json");
 
     if (isSuccess) {
       setSuccess(isSuccess);

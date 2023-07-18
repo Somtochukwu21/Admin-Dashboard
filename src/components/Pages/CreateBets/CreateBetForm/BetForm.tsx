@@ -1,9 +1,9 @@
 import { AlertError } from "../../../Global/Alert/Alert";
 import { AlertSuccess } from "../../../Global/Alert/AlertSuccess";
-import { useBets } from "../../../Global/Api/useBets";
 import { Button } from "../../../Global/Button/Button";
 import { Card } from "../../../Global/Card/Card";
 import { MaxCard } from "../../../Global/Card/MaxCard/MaxCard";
+import { useBets } from "../../../Global/hooks/useBets";
 import { Input } from "../../../Global/Input/Input";
 import { useCreateBet } from "../hooks/useCreateBet";
 

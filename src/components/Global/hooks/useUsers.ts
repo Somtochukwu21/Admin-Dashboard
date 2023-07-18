@@ -5,10 +5,12 @@ export const useUsers = () => {
   const fetchData = async () => {
     const response = await fetch("https://gobet-admin-dashboard-default-rtdb.firebaseio.com/users.json");
 
-    const data: DataType[] = await response.json();
-    const fetchedData = Object.values(data);
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
 
-    return fetchedData;
+    const data: DataType[] = await response.json();
+    return Object.entries(data).map(([id, { displayName, email }]) => ({ id, displayName, email }));
   };
 
   const { data, isLoading, isError, isSuccess } = useQuery("Data", fetchData);

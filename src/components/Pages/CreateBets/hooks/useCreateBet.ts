@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { usePostedBets } from "../../../Global/Api/usePostedBets";
+import { usePostedBets } from "../../../Global/hooks/usePostedBets";
 import { Bet } from "../../../Global/types/Bet";
 export const useCreateBet = () => {
   const [bets, setBets] = useState<Bet[]>([]);

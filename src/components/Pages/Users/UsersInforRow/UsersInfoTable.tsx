@@ -1,6 +1,6 @@
 import { Table, TableBody, TableHead } from "@mui/material";
-import { useUsers } from "../../../Global/Api/useUsers";
 import { Card } from "../../../Global/Card/Card";
+import { useUsers } from "../../../Global/hooks/useUsers";
 import { SkeletonFade } from "../../../Global/SkeletonFade/SkeletonFade";
 import { TableHeader } from "../../../Global/Table/TableHeader/TableHeader";
 import { UsersInfoRow } from "./UsersInfoRow";
