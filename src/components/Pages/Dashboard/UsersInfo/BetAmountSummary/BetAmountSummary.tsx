@@ -6,13 +6,12 @@ export const BetAmountSummary = () => {
   const { data } = useBalance();
   let sum = 0;
   const amount = data?.map(item => (sum += item.amount));
-
   return (
     <UserCard
       info="Total User Bet"
       icon={<AiTwotoneWallet />}
       percent={`17%`}
-      content={`$${sum.toLocaleString()}`}
+      content={amount !== undefined ? "$" + sum.toLocaleString() : "Loading"}
       className={amount === undefined ? "animate-pulse" : ""}
     />
   );
