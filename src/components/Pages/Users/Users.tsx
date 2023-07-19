@@ -4,7 +4,7 @@ import { UsersInfoTable } from "./UsersInforRow/UsersInfoTable";
 
 export const Users = () => {
   return (
-    <MaxCard className=" bg-primary text-xl font-semibold text-gray-900 ">
+    <MaxCard className=" bg-primary  ">
       <Header routerName="Users" />
       <div className="px-3">
         <UsersInfoTable />

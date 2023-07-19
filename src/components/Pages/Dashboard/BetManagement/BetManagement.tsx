@@ -1,8 +1,8 @@
 import { Table, TableBody, TableContainer, TableHead } from "@mui/material";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
-import { useBets } from "../../../Global/Api/useBets";
 import { Button } from "../../../Global/Button/Button";
 import { Card } from "../../../Global/Card/Card";
+import { useBets } from "../../../Global/hooks/useBets";
 import { SkeletonFade } from "../../../Global/SkeletonFade/SkeletonFade";
 import { TableHeader } from "../../../Global/Table/TableHeader/TableHeader";
 import { TextWrap } from "../../../Global/TextWrap/TextWrap";

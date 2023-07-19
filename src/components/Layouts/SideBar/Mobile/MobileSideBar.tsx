@@ -9,9 +9,9 @@ export const MobileSideBar = () => {
 
   return (
     <div className="block lg:hidden">
+      {!open && <div className="fixed left-0 top-0  h-full w-full bg-[#00000080]" onClick={toggleSideBar} />}
       <div
-        id="mySidepanel"
-        className={`sidepanel pt-1l4 fixed left-0 top-0 z-10 h-full overflow-x-hidden bg-secondary text-gray-100   duration-300
+        className={`pt-1l4 fixed left-0 top-0 z-10 h-full overflow-x-hidden bg-secondary text-gray-100 duration-300
       ${open ? "w-0" : "w-[250px]"}`}
       >
         <div className="flex justify-end  px-3 py-5 text-[36px]">

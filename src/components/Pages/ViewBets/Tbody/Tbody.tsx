@@ -1,6 +1,6 @@
 import { TableBody } from "@mui/material";
 import { useEffect } from "react";
-import { useBets } from "../../../Global/Api/useBets";
+import { useBets } from "../../../Global/hooks/useBets";
 import { TbodyRow } from "./TbodyRow/TbodyRow";
 
 export const Tbody = () => {

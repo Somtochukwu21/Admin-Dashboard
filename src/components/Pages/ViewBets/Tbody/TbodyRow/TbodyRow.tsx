@@ -46,5 +46,3 @@ export const TbodyRow = ({ data }: PropType) => {
     </TableRow>
   );
 };
-
-// Working on the delete

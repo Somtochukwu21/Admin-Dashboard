@@ -1,6 +1,6 @@
 import { TableCell } from "@mui/material";
 import { Fragment } from "react";
-import { useBets } from "../../Api/useBets";
+import { useBets } from "../../hooks/useBets";
 import { Bet } from "../../types/Bet";
 
 export const TableDataRows = () => {

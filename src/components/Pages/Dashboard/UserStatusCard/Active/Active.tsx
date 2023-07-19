@@ -1,7 +1,7 @@
 // import { GrFormNext } from "react-icons/gr";
 import { Link } from "react-router-dom";
-import { useUsers } from "../../../../Global/Api/useUsers";
 import { Button } from "../../../../Global/Button/Button";
+import { useUsers } from "../../../../Global/hooks/useUsers";
 import { TextWrap } from "../../../../Global/TextWrap/TextWrap";
 import { UsersTemplate } from "../UsersTemplate/UsersTemplate";
 

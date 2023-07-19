@@ -1,7 +1,7 @@
 import { ref, update } from "firebase/database";
 import { useState } from "react";
 import { db } from "../../../../config/firebase";
-import { useBets } from "../../Api/useBets";
+import { useBets } from "../../hooks/useBets";
 import { Bet } from "../../types/Bet";
 
 export const useFormDialogue = (handleClose: () => void, data: Bet) => {
