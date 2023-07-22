@@ -80,8 +80,8 @@ export const BetForm: React.FC = () => {
               />
             </div>
           </div>
-          <div className=" md:flex md:items-end  md:space-x-4">
-            <div className="mt-4 md:mt-0 md:w-3/4">
+          <div className=" md:flex md:items-end  md:space-x-4 md:[&>*]:w-1/2">
+            <div className="mt-4 md:mt-0">
               <label htmlFor="odd2">Away Odd 2:</label>
               <Input
                 type="number"
@@ -93,18 +93,14 @@ export const BetForm: React.FC = () => {
             </div>
 
             <div className="mt-4 md:mt-0">
-              <select
-                value={stadium}
+              <label htmlFor="stadium">Select Stadium:</label>
+              <Input
+                type="text"
                 id="stadium"
-                className="border-none bg-transparent outline-none hover:cursor-pointer"
+                placeholder="Enter away odd"
+                value={stadium}
                 onChange={e => setStadium(e.target.value)}
-              >
-                <option onChange={stopInput}>Select Stadium</option>
-                <option>Uk Stadium</option>
-                <option>Us Stadium</option>
-                <option>Barca Stadium</option>
-                <option>Ufc Stadium</option>
-              </select>
+              />
             </div>
           </div>
           <div className="mt-7 w-full">

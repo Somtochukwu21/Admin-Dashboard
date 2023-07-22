@@ -1,17 +1,15 @@
-import { Table, TableBody, TableContainer, TableHead } from "@mui/material";
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import { Button } from "../../../Global/Button/Button";
 import { Card } from "../../../Global/Card/Card";
 import { useBets } from "../../../Global/hooks/useBets";
 import { SkeletonFade } from "../../../Global/SkeletonFade/SkeletonFade";
-import { TableHeader } from "../../../Global/Table/TableHeader/TableHeader";
 import { TextWrap } from "../../../Global/TextWrap/TextWrap";
 import { usePagination } from "./hook/usePagination/usePagination";
 import { TableBodyRow } from "./Tbody/TBodyRow/TBodyRow";
 
 export function BetManagement() {
   const { betData, isLoading } = useBets();
-  const texts = ["", "HOME team - AWAY team", "1", "x", "2", "Stadium"];
   const { paginatedData, currentPage, totalPages, handlePageClick } = usePagination(betData);
 
   return (
@@ -23,7 +21,14 @@ export function BetManagement() {
         <TableContainer>
           <Table aria-label="collapsible table">
             <TableHead>
-              <TableHeader from={1} textArr={texts} />
+              <TableRow>
+                <TableCell></TableCell>
+                <TableCell>HOME team - AWAY team</TableCell>
+                <TableCell align="right">1 </TableCell>
+                <TableCell align="right">x</TableCell>
+                <TableCell align="right">2</TableCell>
+                <TableCell align="right">Stadium</TableCell>
+              </TableRow>
             </TableHead>
             <TableBody>
               {paginatedData.map((data, i) => (
