@@ -1,23 +1,17 @@
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import { FormEvent } from "react";
+import { Box, Container, TextField, Typography } from "@mui/material";
+import { useContext } from "react";
+import { Controller } from "react-hook-form";
 import { Button } from "../../Global/Button/Button";
 import { Card } from "../../Global/Card/Card";
+import { AuthContext } from "../../Global/context/AuthContext";
+import { useSignin } from "./hook/useSignin";
 
 export const SignIn = () => {
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-  };
+  const { setUser } = useContext(AuthContext);
 
+  const { control, errors, handleSubmit, onSubmit } = useSignin(setUser);
   return (
-    <Container component={Card} maxWidth="xs">
+    <Container component={Card} maxWidth="xs" className="translate-y-[50%]">
       <Box
         sx={{
           display: "flex",
@@ -28,33 +22,58 @@ export const SignIn = () => {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Controller
             name="email"
-            autoComplete="email"
-            autoFocus
+            control={control}
+            defaultValue=""
+            rules={{
+              required: "Email is required",
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[a-z0-9.-]+\.[A-Z]{2,4}$/i,
+                message: "Invalid email address",
+              },
+            }}
+            render={({ field }) => (
+              <TextField
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                autoComplete="email"
+                autoFocus
+                error={Boolean(errors.email)}
+                helperText={errors.email && errors.email.message}
+                {...field}
+              />
+            )}
           />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            className="border-green-500"
+          <Controller
             name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
+            control={control}
+            defaultValue=""
+            rules={{ required: "Password is required" }}
+            render={({ field }) => (
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                className="border-green-500"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+                error={Boolean(errors.password)}
+                helperText={errors.password && errors.password.message}
+                {...field}
+              />
+            )}
           />
 
           <Button type="submit" className="mb-2 mt-3 w-full uppercase">
             Sign In
           </Button>
-        </Box>
+        </form>
       </Box>
     </Container>
   );

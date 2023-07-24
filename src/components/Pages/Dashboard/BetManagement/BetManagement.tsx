@@ -5,12 +5,13 @@ import { Card } from "../../../Global/Card/Card";
 import { useBets } from "../../../Global/hooks/useBets";
 import { SkeletonFade } from "../../../Global/SkeletonFade/SkeletonFade";
 import { TextWrap } from "../../../Global/TextWrap/TextWrap";
-import { usePagination } from "./hook/usePagination/usePagination";
+import { Bet } from "../../../Global/types/Bet";
+import { usePaginator } from "./hook/usePaginator/usePaginator";
 import { TableBodyRow } from "./Tbody/TBodyRow/TBodyRow";
 
 export function BetManagement() {
   const { betData, isLoading } = useBets();
-  const { paginatedData, currentPage, totalPages, handlePageClick } = usePagination(betData);
+  const { paginatedData, currentPage, totalPages, handlePageClick } = usePaginator(betData, 5);
 
   return (
     <Card className="no-scroll overflow-x-scroll">
@@ -22,7 +23,6 @@ export function BetManagement() {
           <Table aria-label="collapsible table">
             <TableHead>
               <TableRow>
-                <TableCell></TableCell>
                 <TableCell>HOME team - AWAY team</TableCell>
                 <TableCell align="right">1 </TableCell>
                 <TableCell align="right">x</TableCell>
@@ -31,7 +31,7 @@ export function BetManagement() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {paginatedData.map((data, i) => (
+              {(paginatedData as Bet[]).map((data, i) => (
                 <TableBodyRow key={i} data={data} />
               ))}
             </TableBody>
