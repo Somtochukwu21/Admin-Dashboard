@@ -4,6 +4,7 @@ import { Bet } from "../../../Global/types/Bet";
 export const useCreateBet = () => {
   const [bets, setBets] = useState<Bet[]>([]);
   const [team1, setTeam1] = useState("");
+  const [success, setSuccess] = useState(false);
   const [team2, setTeam2] = useState("");
   const [odd1, setOdd1] = useState("");
   const [odd2, setOdd2] = useState("");
@@ -11,7 +12,7 @@ export const useCreateBet = () => {
   const [stadium, setStadium] = useState("");
   const [showAlert, setShowAlert] = useState(false);
 
-  const { mutation } = usePostedBets();
+  const { mutation, error } = usePostedBets();
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
 
@@ -31,7 +32,7 @@ export const useCreateBet = () => {
       oddx: parseFloat(oddx),
       stadium,
     };
-
+    setSuccess(true);
     setBets([...bets, newBet]);
 
     mutation.mutate(newBet);
@@ -55,6 +56,8 @@ export const useCreateBet = () => {
     bets,
     odd1,
     odd2,
+    error,
+    success,
     oddx,
     showAlert,
     setOdd1,

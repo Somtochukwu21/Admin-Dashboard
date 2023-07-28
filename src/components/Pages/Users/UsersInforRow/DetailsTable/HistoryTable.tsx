@@ -1,7 +1,7 @@
 import { Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
-import { createData } from "../../../hook/createData/createData";
+import { createData } from "../../../Dashboard/BetManagement/hook/createData/createData";
 
-export const HistoryTable = (props: { row: ReturnType<typeof createData> }) => {
+export const DetailsTable = (props: { row: ReturnType<typeof createData> }) => {
   const { row } = props;
 
   return (

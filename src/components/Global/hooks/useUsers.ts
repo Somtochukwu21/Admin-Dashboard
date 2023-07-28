@@ -10,7 +10,7 @@ export const useUsers = () => {
     }
 
     const data: DataType[] = await response.json();
-    return Object.entries(data).map(([id, { displayName, email }]) => ({ id, displayName, email }));
+    return Object.entries(data).map(([id, { displayName, email, admin }]) => ({ id, displayName, email, admin }));
   };
 
   const { data, isLoading, isError, isSuccess } = useQuery("Data", fetchData);

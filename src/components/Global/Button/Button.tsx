@@ -8,7 +8,7 @@ export const Button = ({ className, children, ...props }: ButtonType) => {
       {...props}
       className={` rounded  border-none bg-accent  p-2 font-bold
    text-white outline-none
- active:scale-95 ${className}`}
+ active:scale-[0.991] ${className}`}
     >
       {children}{" "}
     </button>

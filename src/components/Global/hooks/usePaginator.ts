@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { Bet } from "../../../../../Global/types/Bet";
 
-export const usePagination = (data: Bet[]) => {
-  const pageSize = 5;
+export const usePaginator = (data: any, size: number) => {
+  const pageSize = size;
   const [currentPage, setCurrentPage] = useState<number>(1);
   const dataLength = Number(data?.length);
   const totalPages = Math.ceil(dataLength / pageSize);
