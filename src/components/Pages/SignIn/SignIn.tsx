@@ -1,15 +1,13 @@
 import { Box, Container, TextField, Typography } from "@mui/material";
-import { useContext } from "react";
 import { Controller } from "react-hook-form";
+import { ReactComponent as LoadingIcon } from "../../../assets/svg/loading.svg";
 import { Button } from "../../Global/Button/Button";
 import { Card } from "../../Global/Card/Card";
-import { AuthContext } from "../../Global/context/AuthContext";
-import { useSignin } from "./hook/useSignin";
+import { MessageComponent } from "../../Global/MessageComponent/MessageComponent";
+import { useSignIn } from "./hook/useSignIn";
 
 export const SignIn = () => {
-  const { setUser } = useContext(AuthContext);
-
-  const { control, errors, handleSubmit, onSubmit } = useSignin(setUser);
+  const { control, errors, handleSubmit, handleSignIn, isLoading, signInResult } = useSignIn();
   return (
     <Container component={Card} maxWidth="xs" className="translate-y-[50%]">
       <Box
@@ -22,7 +20,7 @@ export const SignIn = () => {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(handleSignIn)}>
           <Controller
             name="email"
             control={control}
@@ -70,10 +68,25 @@ export const SignIn = () => {
             )}
           />
 
-          <Button type="submit" className="mb-2 mt-3 w-full uppercase">
-            Sign In
+          <Button
+            type="submit"
+            className={`mb-2 mt-3 h-12 w-full uppercase ${isLoading ? "disabled:bg-[#008080b3]" : ""}`}
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <div className="[&>*]:h-10">
+                <LoadingIcon />
+              </div>
+            ) : (
+              <span>Sign In</span>
+            )}
           </Button>
         </form>
+        {signInResult.success ? (
+          <MessageComponent className="border-l-[green] bg-green-200 " message={signInResult.message} />
+        ) : (
+          <MessageComponent className="border-l-[red] bg-red-200" message={signInResult.message} />
+        )}
       </Box>
     </Container>
   );
