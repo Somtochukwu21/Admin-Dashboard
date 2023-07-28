@@ -2,10 +2,10 @@ import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import { Button } from "../../../Global/Button/Button";
 import { Card } from "../../../Global/Card/Card";
+import { usePaginator } from "../../../Global/hooks/usePaginator";
 import { useUsers } from "../../../Global/hooks/useUsers";
 import { SkeletonFade } from "../../../Global/SkeletonFade/SkeletonFade";
 import { DataType } from "../../../Global/types/Datatype";
-import { usePaginator } from "../../Dashboard/BetManagement/hook/usePaginator/usePaginator";
 import { UsersInfoRow } from "./UsersInfoRow";
 
 export const UsersInfoTable = () => {

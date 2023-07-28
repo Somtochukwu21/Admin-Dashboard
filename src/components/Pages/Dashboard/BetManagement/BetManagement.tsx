@@ -3,10 +3,10 @@ import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import { Button } from "../../../Global/Button/Button";
 import { Card } from "../../../Global/Card/Card";
 import { useBets } from "../../../Global/hooks/useBets";
+import { usePaginator } from "../../../Global/hooks/usePaginator";
 import { SkeletonFade } from "../../../Global/SkeletonFade/SkeletonFade";
 import { TextWrap } from "../../../Global/TextWrap/TextWrap";
 import { Bet } from "../../../Global/types/Bet";
-import { usePaginator } from "./hook/usePaginator/usePaginator";
 import { TableBodyRow } from "./Tbody/TBodyRow/TBodyRow";
 
 export function BetManagement() {
