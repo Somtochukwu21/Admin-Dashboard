@@ -5,6 +5,7 @@ import { DataType } from "../../../Global/types/Datatype";
 
 export const UsersInfoRow = ({ user }: { user: DataType }) => {
   const [open, setOpen] = useState(false);
+
   return (
     <Fragment>
       <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
