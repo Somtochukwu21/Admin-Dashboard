@@ -43,7 +43,6 @@ export const useSignIn = () => {
       if (userData?.admin === true) {
         setSignInResult({ success: true });
         setAuth("isLoggedIn", "true");
-        setAuth("user", JSON.stringify(userData));
         navigate("/");
       } else {
         setSignInResult({ success: false, message: "Access Denied" });
