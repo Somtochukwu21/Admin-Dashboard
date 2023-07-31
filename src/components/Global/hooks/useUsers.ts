@@ -9,8 +9,15 @@ export const useUsers = () => {
       throw new Error("Network response was not ok");
     }
 
+    // const d = await response.json();
+    // console.log(d);
     const data: DataType[] = await response.json();
-    return Object.entries(data).map(([id, { displayName, email, admin }]) => ({ id, displayName, email, admin }));
+    return Object.entries(data).map(([, { displayName, email, admin, userid }]) => ({
+      userid,
+      displayName,
+      email,
+      admin,
+    }));
   };
 
   const { data, isLoading, isError, isSuccess } = useQuery("Data", fetchData);
