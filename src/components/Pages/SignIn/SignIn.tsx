@@ -7,7 +7,7 @@ import { MessageComponent } from "../../Global/MessageComponent/MessageComponent
 import { useSignIn } from "./hook/useSignIn";
 
 export const SignIn = () => {
-  const { control, errors, handleSubmit, handleSignIn, isLoading, signInResult } = useSignIn();
+  const { control, errors, handleSubmit, handleSignIn, isLoading, signInResult, signInResultErr } = useSignIn();
   return (
     <Container component={Card} maxWidth="xs" className="translate-y-[50%]">
       <Box
@@ -82,10 +82,12 @@ export const SignIn = () => {
             )}
           </Button>
         </form>
-        {signInResult.success ? (
+        {signInResult.success && (
           <MessageComponent className="border-l-[green] bg-green-200 " message={signInResult.message} />
-        ) : (
-          <MessageComponent className="border-l-[red] bg-red-200" message={signInResult.message} />
+        )}
+
+        {signInResultErr.success && (
+          <MessageComponent className="border-l-[red] bg-red-200" message={signInResultErr.message} />
         )}
       </Box>
     </Container>

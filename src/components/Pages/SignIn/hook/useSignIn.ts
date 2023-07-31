@@ -22,8 +22,10 @@ export const useSignIn = () => {
   const [signInResult, setSignInResult] = useState<SignInResult>({
     success: false,
   });
+  const [signInResultErr, setSignInResultErr] = useState<SignInResult>({
+    success: false,
+  });
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
   const {
     handleSubmit,
     control,
@@ -43,10 +45,10 @@ export const useSignIn = () => {
       if (userData?.admin === true) {
         setSignInResult({ success: true });
         setAuth("isLoggedIn", "true");
-        setAuth("user", JSON.stringify(userData));
         navigate("/");
+        setAuth("user", JSON.stringify(userData));
       } else {
-        setSignInResult({ success: false, message: "Access Denied" });
+        setSignInResultErr({ success: true, message: "Access Denied" });
       }
     } catch (error: any) {
       // Handle specific error types for better user feedback
@@ -57,9 +59,11 @@ export const useSignIn = () => {
         errorMessage = "Invalid password. Please try again.";
       } else if (error.code === "auth/network-request-failed") {
         errorMessage = "Network error. Please check your internet connection.";
+      } else if (error.code === "auth/invalid-email") {
+        errorMessage = "Invalid email. Please try again.";
       }
 
-      setSignInResult({ success: false, message: errorMessage });
+      setSignInResultErr({ success: true, message: errorMessage });
     } finally {
       setIsLoading(false);
     }
@@ -72,5 +76,6 @@ export const useSignIn = () => {
     isLoading,
     signInResult,
     handleSubmit,
+    signInResultErr,
   };
 };

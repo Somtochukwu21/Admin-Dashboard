@@ -9,33 +9,15 @@ import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
-import { auth } from "../../../config/firebase";
-import { clearAuth, getAuth } from "../Authentication/Authentication";
+import { useProfile } from "./hook/useProfile";
 
 export function Profile() {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-  const admin = getAuth("user");
-
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const signOut = () => {
-    auth.signOut();
-    clearAuth("isLoggedIn");
-    clearAuth("user");
-    window.location.href = "/";
-  };
-
+  const { firstLetter, handleClick, handleClose, open, signOut, name, anchorEl } = useProfile();
   return (
     <React.Fragment>
       <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
-        <Avatar sx={{ width: 32, height: 32, mr: 2 }}>A</Avatar>
-        <Typography>Admin</Typography>
+        <Avatar sx={{ width: 32, height: 32, mr: 2 }}>{firstLetter}</Avatar>
+        <Typography>{name ?? "loading..."}</Typography>
         <Tooltip title="Account settings">
           <IconButton
             onClick={handleClick}
