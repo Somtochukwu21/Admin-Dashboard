@@ -33,7 +33,7 @@ export const BetForm: React.FC = () => {
 
   return (
     <MaxCard>
-      <Card className="sm:mt-20 md:mt-0">
+      <Card>
         <form onSubmit={handleSubmit} className="flex flex-col bg-white md:space-y-4">
           <div className="md:flex md:items-center md:space-x-4 md:[&>*]:w-1/2 ">
             <div>
