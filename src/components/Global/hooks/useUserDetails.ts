@@ -17,13 +17,13 @@ export const useUserDetails = () => {
 
         for (const userPlacedBetDetails in placedBetDetails) {
           const usersBet = placedBetDetails[userPlacedBetDetails];
-
           fetchedData.push({
             amount: placedBetDetails.amountPlacedOnBet,
             bet: usersBet.teamPlace,
             oddVal: usersBet.oddValue,
             oddType: usersBet.oddType,
             id: key,
+            rid: usersBet.rId,
           });
         }
       }

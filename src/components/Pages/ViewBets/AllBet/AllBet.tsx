@@ -7,7 +7,7 @@ import { useBets } from "../../../Global/hooks/useBets";
 import { usePaginator } from "../../../Global/hooks/usePaginator";
 import { SkeletonFade } from "../../../Global/SkeletonFade/SkeletonFade";
 import { Bet } from "../../../Global/types/Bet";
-import { TbodyRow } from "../Tbody/TbodyRow/TbodyRow";
+import { TbodyRow } from "../TbodyRow/TbodyRow";
 
 export const AllBet: React.FC = () => {
   const { isLoading, betData } = useBets();

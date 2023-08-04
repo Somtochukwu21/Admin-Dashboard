@@ -4,4 +4,5 @@ export type Amount = {
   bet: string;
   oddType: string;
   oddVal: number;
+  rid: string;
 };

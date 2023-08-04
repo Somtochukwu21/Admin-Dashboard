@@ -8,6 +8,7 @@ type PropsType = {
 
 export const DetailsTable = ({ user }: PropsType) => {
   const { details } = useUserDetails();
+
   return (
     <Table size="small" aria-label="purchases">
       <TableHead>

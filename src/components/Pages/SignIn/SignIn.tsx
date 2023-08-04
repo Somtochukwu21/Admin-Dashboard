@@ -9,7 +9,7 @@ import { useSignIn } from "./hook/useSignIn";
 export const SignIn = () => {
   const { control, errors, handleSubmit, handleSignIn, isLoading, signInResult, signInResultErr } = useSignIn();
   return (
-    <Container component={Card} maxWidth="xs" className="translate-y-[50%]">
+    <Container component={Card} maxWidth="xs" className="md:translate-y-[50%]">
       <Box
         sx={{
           display: "flex",
