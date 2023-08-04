@@ -7,7 +7,7 @@ export const useProfile = () => {
   const open = Boolean(anchorEl);
   const user = getAuth("user");
   const admin = user ? JSON.parse(user) : null;
-  const name = admin.displayName;
+  const name = admin?.displayName;
   const firstLetter = name?.toString().charAt(0).toUpperCase() || "!";
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -18,10 +18,10 @@ export const useProfile = () => {
   };
 
   const signOut = () => {
-    auth.signOut();
     clearAuth("isLoggedIn");
-    clearAuth("user");
+    auth.signOut();
     window.location.href = "/";
+    clearAuth("user");
   };
   return {
     signOut,

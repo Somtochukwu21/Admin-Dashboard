@@ -2,6 +2,7 @@ import { Box, Collapse, IconButton, TableCell, TableRow, Typography } from "@mui
 import { Fragment, useState } from "react";
 import { BiSolidDownArrow, BiSolidUpArrow } from "react-icons/bi";
 import { DataType } from "../../../Global/types/Datatype";
+import { DetailsTable } from "./DetailsTable/DetailsTable";
 
 export const UsersInfoRow = ({ user }: { user: DataType }) => {
   const [open, setOpen] = useState(false);
@@ -27,9 +28,7 @@ export const UsersInfoRow = ({ user }: { user: DataType }) => {
               <Typography variant="h6" gutterBottom component="div">
                 Details
               </Typography>
-              {/* <HistoryTable row={row} />
-               Whenever we solve the case of admin knowing the particular bet a user have placed then we have solve this
-              */}
+              <DetailsTable user={user} />
             </Box>
           </Collapse>
         </TableCell>

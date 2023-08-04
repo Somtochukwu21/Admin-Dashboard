@@ -11,6 +11,7 @@ import { UsersInfoRow } from "./UsersInfoRow";
 export const UsersInfoTable = () => {
   const { data, isLoading } = useUsers();
   const { paginatedData, currentPage, totalPages, handlePageClick } = usePaginator(data, 10);
+
   return (
     <Card className="no-scroll mt-20 overflow-x-scroll  md:mt-0">
       {isLoading ? (

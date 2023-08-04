@@ -1,8 +1,8 @@
 export type Amount = {
+  id: string;
   amount: number;
   bet: string;
-  k: string;
-  id: string;
   oddType: string;
   oddVal: number;
+  rid: string;
 };

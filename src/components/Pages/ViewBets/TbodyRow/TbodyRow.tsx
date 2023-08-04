@@ -2,10 +2,11 @@ import { TableCell, TableRow } from "@mui/material";
 import { useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
-import { Button } from "../../../../Global/Button/Button";
-import { DeleteDialog } from "../../../../Global/DialogBox/DeleteDialog";
-import FormDialog from "../../../../Global/DialogBox/FormDialogue";
-import { Bet } from "../../../../Global/types/Bet";
+import { Button } from "../../../Global/Button/Button";
+import { DeleteDialog } from "../../../Global/DialogBox/DeleteDialog";
+import FormDialog from "../../../Global/DialogBox/FormDialogue";
+import { Bet } from "../../../Global/types/Bet";
+
 type PropType = {
   data: Bet;
 };
@@ -13,6 +14,8 @@ type PropType = {
 export const TbodyRow = ({ data }: PropType) => {
   const [open, setOpen] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
+
+  // console.log(data);
 
   const handleClose = () => {
     setOpen(false);
@@ -39,6 +42,8 @@ export const TbodyRow = ({ data }: PropType) => {
         <Button className=" ml-3 bg-red-400 " onClick={() => setOpen(true)}>
           <AiFillDelete />
         </Button>
+
+        <Button className=" ml-3">complete</Button>
 
         {open && <DeleteDialog onOpen={open} handleClose={handleClose} data={data} />}
         {openEdit && <FormDialog onOpen={openEdit} handleClose={handleEditClose} data={data} />}

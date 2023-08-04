@@ -1,13 +1,14 @@
 import { useMemo } from "react";
 import { AiTwotoneWallet } from "react-icons/ai";
-import { useBalance } from "../../../../Global/hooks/useBalance";
+import { useUserDetails } from "../../../../Global/hooks/useUserDetails";
 import { UserCard } from "../UsersCard/UsersCard";
 
 export const BetAmountSummary = () => {
-  const { data } = useBalance();
+  const { details } = useUserDetails();
   let sum = 0;
-  const amount = data?.map(item => (sum += item.amount));
+  const amount = details?.map(item => (sum += item.amount));
   const WalletIcon = useMemo(() => <AiTwotoneWallet />, []);
+
   return (
     <UserCard
       info="Total User Bet"
